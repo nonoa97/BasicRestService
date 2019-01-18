@@ -1,17 +1,23 @@
 package com.rests.rests.user;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
+@ApiModel(description = "Minden amit a user-ről tudni kell!")
 public class User {
 
     private Integer id;
 
     @Size(min=2, message = "A névnek minimum 2 karakterből kell állnia!")
+    @ApiModelProperty("A névnek minimum 2 karakterből kell állnia!")
     private String name;
 
     @Past
+    @ApiModelProperty("Nem lehet a születési idő jövőbeli dátum")
     private Date birthDate;
 
     public User(Integer id, String name, Date birthDate) {
