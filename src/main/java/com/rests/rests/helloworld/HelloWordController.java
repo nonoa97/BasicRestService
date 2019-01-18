@@ -2,6 +2,7 @@ package com.rests.rests.helloworld;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Locale;
@@ -34,7 +35,8 @@ public class HelloWordController {
 
 
     @GetMapping("/i18n")
-    public String i18n(@RequestHeader(name="Accept-Language", required = false) Locale locale){
-        return messageSource.getMessage("good.morning.message",null, locale);
+    public String i18n(){
+        return messageSource.getMessage("good.morning.message",null,
+                 LocaleContextHolder.getLocale());
     }
 }
