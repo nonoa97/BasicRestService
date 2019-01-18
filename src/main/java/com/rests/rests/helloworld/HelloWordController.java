@@ -13,7 +13,7 @@ public class HelloWordController {
     @Autowired
     private MessageSource messageSource;
 
-    @GetMapping("/")
+    @GetMapping("/hello")
     public String helloWorld(){
         return "Hello World";
     }
